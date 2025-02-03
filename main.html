@@ -67,7 +67,9 @@
       existingButton.style.display = 'block';
     }
 
-    submitButton.addEventListener('click', function() {
+   submitButton.addEventListener('click', function(event) {
+  // Prevent the form from submitting
+  event.preventDefault();
       const username = usernameInput.value;
       const password = passwordInput.value;
 
@@ -83,8 +85,9 @@
     });
 
     existingButton.addEventListener('click', function() {
-      alert(`Logged in as ${savedUsername}`);
-    });
+  const savedUsername = localStorage.getItem('username');
+  alert(`Logged in as ${savedUsername}`);
+});
   </script>
 </body>
 </html>
